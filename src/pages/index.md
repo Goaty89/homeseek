@@ -1,21 +1,24 @@
 ---
 templateKey: index-page
-title: Hi, i am Sandra Ng
-image: /img/home-jumbotron.jpg
-heading: Hi, i am Sandra Ng
+title: I am Sandra Ng
+image: /img/header-house.jpeg
+heading: Services
 subheading: The Staten Island real estate expert
 mainpitch:
-  title: Hello
+  title: >-
   description: >
-    Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
-    directly from small scale sustainable farmers and make sure part of the
-    profits are reinvested in their communities.
+
 description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
+  Whether it is selling your home or your buying your first home, my team will be there to guide every step of the process. They are educated about the current markets in Staten Island and utilize the best technology possible to find and list your home. Most importantly, our team hold themselves accountable to the community in which they live in.
+services:
+  blurbs:
+    - title: Buy
+      description: >-
+        Looking at something to buy?
+    - title: Sell
+      description: >-
+        Looking for someone to buy?
+
 intro:
   blurbs:
     - image: /img/coffee.png

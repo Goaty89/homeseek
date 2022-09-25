@@ -8,7 +8,8 @@ export default function FullWidthImage(props) {
     img,
     title,
     subheading,
-    imgPosition = "top left",
+    imgPosition = "top center",
+    hasOverlay,
   } = props;
 
   return (
@@ -42,10 +43,12 @@ export default function FullWidthImage(props) {
             image={img}
             objectFit={"cover"}
             objectPosition={imgPosition}
+            backgroundColor="orange"
             style={{
               gridArea: "1/1",
               // You can set a maximum height for the image, if you wish.
               maxHeight: height,
+              opacity: 0.6,
             }}
             layout="fullWidth"
             // You can optionally force an aspect ratio for the generated image

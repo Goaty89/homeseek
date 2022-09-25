@@ -5,6 +5,7 @@ import { getImage } from "gatsby-plugin-image";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
+import Services from "../components/Services";
 import BlogRoll from "../components/BlogRoll";
 import FullWidthImage from "../components/FullWidthImage";
 
@@ -17,35 +18,47 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
+  services,
 }) => {
   const heroImage = getImage(image) || image;
 
   return (
     <div>
-      <FullWidthImage img={heroImage} title={title} subheading={subheading} />
+      <FullWidthImage
+        img={heroImage}
+        title={title}
+        subheading={subheading}
+        hasOverlay
+      />
       <section className="section section--gradient">
         <div className="container">
           <div className="section">
             <div className="columns">
               <div className="column is-10 is-offset-1">
                 <div className="content">
-                  <div className="content">
-                    <div className="tile">
-                      <h1 className="title">{mainpitch.title}</h1>
+                  {mainpitch.title || mainpitch.description ? (
+                    <div className="content">
+                      <div className="tile">
+                        <h1 className="title">{mainpitch.title}</h1>
+                      </div>
+                      <div className="tile">
+                        <h3 className="subtitle">{mainpitch.description}</h3>
+                      </div>
                     </div>
-                    <div className="tile">
-                      <h3 className="subtitle">{mainpitch.description}</h3>
-                    </div>
-                  </div>
+                  ) : (
+                    <></>
+                  )}
+
                   <div className="columns">
                     <div className="column is-12">
-                      <h3 className="has-text-weight-semibold is-size-2">
+                      <h3 className="has-text-weight-semibold is-size-2 ">
                         {heading}
                       </h3>
                       <p>{description}</p>
                     </div>
                   </div>
-                  <Features gridItems={intro.blurbs} />
+                  <Services gridItems={services.blurbs} />
+                  {/* <Features gridItems={intro.blurbs} /> */}
                   {/* <div className="columns">
                     <div className="column is-12 has-text-centered">
                       <Link className="btn" to="/products">
@@ -84,6 +97,9 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
+  services: PropTypes.shape({
+    blurbs: PropTypes.array,
+  }),
 };
 
 const IndexPage = ({ data }) => {
@@ -99,6 +115,7 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        services={frontmatter.services}
       />
     </Layout>
   );
@@ -131,6 +148,12 @@ export const pageQuery = graphql`
           description
         }
         description
+        services {
+          blurbs {
+            title
+            description
+          }
+        }
         intro {
           blurbs {
             image {
